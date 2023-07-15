@@ -1,0 +1,265 @@
+
+<html lang="en">
+<head>
+    <title>TIC-TAC-TOE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body{width: 1500px;
+            height: 1200px;
+            background-color:darkcyan;
+            align-items: center;
+        }
+        .box{
+            width: 550px;
+            height: 550px;
+            
+            display: flex;
+             flex-wrap: wrap;
+             align-items: center;
+             background-color: #fff;
+             float: left;
+             margin-left: 100px;
+            
+        }
+        .divbox{
+             width:  160px;
+             height: 160px;
+             background-color: darkcyan;
+             padding: 5px 5px 5px 5px;
+             margin-left: 17px;
+        }
+        .divbox:hover{
+            background-color: cadetblue;
+            transform: scale(0.9);
+            cursor: pointer;
+        }
+        .fa-circle{
+           align-items: center;
+        }
+        #name
+        {    height: 50px;
+            width: 1000px;
+            margin-top: 30px;
+            color:dark ;
+            font-size: xx-large;
+        }
+        .plr{
+            height: 400px;
+            width: 300px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 80px;
+        }
+        #startdiv{
+            height: 500px;
+            width: 300px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        #game{
+            display: none;
+        }
+        .set{
+            font-size: xx-large;
+        }
+        
+        
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script
+    src="https://code.jquery.com/jquery-3.7.0.min.js"
+     crossorigin="anonymous"></script>
+    <script>
+        $(document).ready
+        (function()
+        { 
+            $("#b1").val("1");
+            $("#b2").val("2");
+            $("#b3").val("3");
+            $("#b4").val("4");
+            $("#b5").val("5");
+            $("#b6").val("6");
+            $("#b7").val("7");
+            $("#b8").val("8");
+            $("#b9").val("9");
+
+
+           $("#start").click(function(){
+            $("#startdiv").fadeOut(200);
+            $("#game").fadeIn(800);
+           
+            $("#turn2").fadeOut(200);
+            $("#w1").fadeOut(200);
+            $("#w2").fadeOut(200);
+
+            document.getElementById("nm1")= $("#p1").val();
+            
+
+           })
+
+
+
+
+        var flag=false;
+        
+            $(".divbox").click(function()
+            {
+               if(flag==true)
+               {     
+                $(this).removeClass("fa-regular fa-circle fa-8x").addClass("fa-solid fa-xmark fa-10x");
+               
+                flag=false;
+                
+                $("#turn2").fadeOut();
+                
+                $("#turn1").fadeIn();
+                
+           $(this).val("X");
+                
+                
+               }
+               else
+               {
+                $(this).addClass("fa-regular fa-circle fa-8x").removeClass("fa-solid fa-xmark fa-10x");
+               
+                flag=true;
+                $("#turn1").fadeOut();
+                
+                $("#turn2").fadeIn();
+                
+                $(this).val("O");
+                
+                
+               }
+            
+               $(this).unbind("click"); 
+            }); 
+              $(".divbox").click(function(){
+                if ($("#b1").val() == $("#b2").val() && $("#b2").val() == $("#b3").val() && $("#b3").val() == $("#b1").val()) 
+               {      $(".divbox").unbind("click"); 
+               $("#turn1").fadeOut(100);
+               $("#turn2").fadeOut(100);
+                if ($("#b1").val() == "X")  $("#w2").fadeIn(100);
+                    else $("#w1").fadeIn(100);
+}
+               else if ($("#b4").val() == $("#b5").val() && $("#b5").val() == $("#b6").val() && $("#b6").val() == $("#b4").val()) 
+               {  $(".divbox").unbind("click"); 
+               $("#turn1").fadeOut(100);
+               $("#turn2").fadeOut(100);
+                 if ($("#b4").val() == "X") $("#w2").fadeIn(200);
+                    else $("#w1").fadeIn(200);
+ }
+               else if ($("#b7").val() == $("#b8").val() && $("#b8").val() == $("#b9").val() && $("#b9").val() == $("#b7").val()) 
+               {  $(".divbox").unbind("click"); 
+               $("#turn1").fadeOut(100);
+               $("#turn2").fadeOut(100);
+                 if ($("#b7").val() == "X") $("#w2").fadeIn(200);
+                    else $("#w1").fadeIn(200);
+ }
+               else if ($("#b1").val() == $("#b4").val() && $("#b4").val() == $("#b7").val() && $("#b7").val() == $("#b1").val()) 
+               {  $(".divbox").unbind("click"); 
+               $("#turn1").fadeOut(100);
+               $("#turn2").fadeOut(100);
+                 if ($("#b1").val() == "X") $("#w2").fadeIn(200);
+                    else $("#w1").fadeIn(200);
+}
+               else if ($("#b2").val() == $("#b5").val() && $("#b5").val() == $("#b8").val() && $("#b8").val() == $("#b2").val()) 
+               {   $(".divbox").unbind("click"); 
+               $("#turn1").fadeOut(100);
+               $("#turn2").fadeOut(100);
+                if ($("#b2").val() == "X") $("#w2").fadeIn(200);
+                    else $("#w1").fadeIn(200);
+ }
+               else if ($("#b3").val() == $("#b6").val() && $("#b6").val() == $("#b9").val() && $("#b9").val() == $("#b3").val()) 
+               {   $(".divbox").unbind("click"); 
+               $("#turn1").fadeOut(100);
+               $("#turn2").fadeOut(100);
+                if ($("#b3").val() == "X") $("#w2").fadeIn(200);
+                    else $("#w1").fadeIn(200);
+ }
+ else if ($("#b1").val() == $("#b5").val() && $("#b5").val() == $("#b9").val() && $("#b9").val() == $("#b1").val()) 
+               {  $(".divbox").unbind("click"); 
+               $("#turn1").fadeOut(100);
+               $("#turn2").fadeOut(100);
+                if ($("#b1").val() == "X") $("#w2").fadeIn(200);
+                    else $("#w1").fadeIn(200);
+}
+else if ($("#b3").val() == $("#b5").val() && $("#b5").val() == $("#b7").val() && $("#b7").val() == $("#b3").val()) 
+               {   $(".divbox").unbind("click"); 
+               $("#turn1").fadeOut(100);
+               $("#turn2").fadeOut(100);
+                if ($("#b1").val() == "X") $("#w2").fadeIn(200);
+                    else $("#w1").fadeIn(200);
+}
+else if (($("#b1").val() == "X" || $("#b1").val() == "O") &&
+                    ($("#b2").val() == "X" || $("#b2").val() == "O") &&
+                    ($("#b3").val() == "X" || $("#b3").val() == "O") &&
+                    ($("#b4").val() == "X" || $("#b4").val() == "O") &&
+                    ($("#b5").val() == "X" || $("#b5").val() == "O") &&
+                    ($("#b6").val() == "X" || $("#b6").val() == "O") &&
+                    ($("#b7").val() == "X" || $("#b7").val() == "O") &&
+                    ($("#b8").val() == "X" || $("#b8").val() == "O") &&
+                    ($("#b9").val() == "X" || $("#b9").val() == "O"))
+                   {
+                    $("#turn1").fadeOut(100);
+               $("#turn2").fadeOut(100);
+                    alert("Match tied!");
+
+                   }
+
+               
+
+
+              });
+            
+            $("#but").click(function(){
+                document.location.reload(true);
+
+            })
+           
+        })
+    </script>
+</head>
+<body> <center>
+    <div id="name">TIC-TAC-TOE  </div>
+    <div id="startdiv">
+        <label for="">Enter player 1</label>
+        <input type="text" name="p1" id="p1">
+        
+        <br><br>
+        <label for="">Enter player 2</label>
+        <input type="text" name="p2" id="p2">
+        <br><br>
+        <input type="button" value="START" class="btn btn-dark" id="start">
+    </div>
+    <div id="game">
+        <div id="but">
+            <button type="button" class="btn btn-dark" style="margin-bottom: 5px;">restart</button>
+        </div>
+    
+        <div class="plr" id="pl1">
+        <div class="set" id="pl1n">PLAYER 1</div> 
+        <p id="nm1"></p>
+        <div class="set" id="turn1">YOUR TURN!</div> 
+        <div class="set" id="w1">YOU WON!</div>  
+        </div>
+        <div class="box">
+            <div id="b1" class="divbox"></div>
+            <div id="b2" class="divbox"></div>
+            <div id="b3" class="divbox"></div>
+            <div id="b4" class="divbox"></div>
+            <div id="b5" class="divbox"></div>
+            <div id="b6" class="divbox"></div>
+            <div id="b7" class="divbox"></div>
+            <div id="b8" class="divbox"></div>
+            <div id="b9" class="divbox"></div>
+        </div>
+        <div class="plr" id="pl2">
+            <div id="pl2n" class="set">PLAYER 2</div> 
+        <div id="turn2" class="set">YOUR TURN!</div>  
+        <div id="w2" class="set">YOU WON!</div>   
+        </div>
+    </div>
+</center>
+</body>
+</html>
